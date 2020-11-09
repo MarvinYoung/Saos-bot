@@ -14,7 +14,7 @@ client.on('message', m =>{
     const command = args.shift().toLowerCase();
     const channel = client.channels.cache.get(m.channel.id)
 
-    if(command){
+   if(command){
       if(command == "ceker"){
         if (args[0]){
           if(channel.guild.roles.cache.find(o => o.name.toLowerCase() == args[0].toLowerCase())){
@@ -35,14 +35,10 @@ client.on('message', m =>{
           }
         }else {
           m.reply(`Mau Check Role apa Dev <@${m.author.id}>`)
-        }
-      } else if(command == "xhelp"){
-          message.channel.send("List of commands: ceker {role}, xping, xhelp");
-      } else if(command == "xping"){
-          const timeTaken = Date.now() - message.createdTimestamp;
-          message.reply(`latencynya ${timeTaken}ms.`);
+        }    
       }
     }
+    
     try {
         text = ''
         if(m.channel.id == '733075728232349748')return;
