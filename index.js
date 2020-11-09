@@ -42,7 +42,7 @@ client.on('message', m =>{
           const timeTaken = Date.now() - message.createdTimestamp;
           message.reply(`latencynya ${timeTaken}ms.`);
       }
-
+    }
     try {
         text = ''
         if(m.channel.id == '733075728232349748')return;
