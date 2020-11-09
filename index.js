@@ -36,6 +36,11 @@ client.on('message', m =>{
         }else {
           m.reply(`Mau Check Role apa Dev <@${m.author.id}>`)
         }    
+      } else if(command == "xhelp"){
+          message.channel.send("List of commands: ceker {role}, xping, xhelp");
+      } else if(command == "xping"){
+          const timeTaken = Date.now() - message.createdTimestamp;
+          message.reply(`latencynya ${timeTaken}ms.`);
       }
     }
 
