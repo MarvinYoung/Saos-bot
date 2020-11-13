@@ -2,6 +2,7 @@ const Discord = require('discord.js')
 const client = new Discord.Client({partials : ["MESSAGE","CHANNEL","REACTION"]});
 const fs = require("fs");
 let badword = JSON.parse(fs.readFileSync("badword.json", "utf8"));
+const prefix = require(process.env.PREFIX);
 
 client.on('ready',()=>{
     console.log(`Logged in as ${client.user.tag}`);
@@ -223,5 +224,16 @@ client.on('guildMemberRemove',(member) => {
     member.guild.channels.cache.find(ch => ch.name ==='📰members-logs').send(`**${member}** dengan username _**${member.user.tag}**_ Telah Meninggalkan Server Team UP`);
 })
 
+client.on('message',m =>{
+   if(m.author.bot)return;
+  if(m.content.includes('discord.gg')){
+    m.delete()
+    console.log('Delete')
+  }
+
+  if(m.content.startsWith(`${prefix}link`)){
+    m.reply('https://discord.gg/y6rWpzCuwH')
+  }
+})
 
 client.login(process.env.TOKEN);
