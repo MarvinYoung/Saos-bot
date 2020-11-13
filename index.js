@@ -7,6 +7,7 @@ const prefix = process.env.PREFIX
 client.on('ready',()=>{
     console.log(`Logged in as ${client.user.tag}`);
     console.log(`Cached Member ${client.users.cache.size}`)
+    client.user.setActivity('Visual Code',{type : 'PLAYING'})
 })
 
 
