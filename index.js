@@ -229,7 +229,7 @@ client.on('message',m =>{
    if(m.author.bot)return;
    let asli = m.content.split('discord.gg/')[1]
    let code = 'y6rWpzCuwH' 
-  if(m.content.includes('discord.gg/'){
+  if(m.content.includes('discord.gg/')){
         if(code !== asli){
             m.delete()   
         }
