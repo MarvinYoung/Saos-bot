@@ -4,10 +4,24 @@ const fs = require("fs");
 let badword = JSON.parse(fs.readFileSync("badword.json", "utf8"));
 const prefix = process.env.PREFIX
 
+const updatemember = () =>{
+    const channelId = '777571163660222484';
+    const guild = client.guilds.cache.get('724165603740483635');
+    const channel = guild.channels.cache.get(channelId);
+    channel.setName(`Members: ${guild.memberCount.toLocaleString()}`)
+  }
+client.on('guildMemberAdd',(member)=>{
+    updatemember()
+})
+client.on('guildMemberRemove',(member)=>{
+    updatemember()
+})
+
 client.on('ready',()=>{
     console.log(`Logged in as ${client.user.tag}`);
     console.log(`Cached Member ${client.users.cache.size}`)
     client.user.setActivity('Visual Code',{type : 'PLAYING'})
+    updatemember()
 })
 
 
