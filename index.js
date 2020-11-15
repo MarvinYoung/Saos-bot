@@ -227,11 +227,14 @@ client.on('guildMemberRemove',(member) => {
 
 client.on('message',m =>{
    if(m.author.bot)return;
-  if(m.content.includes('discord.gg')){
-    m.delete()
-    console.log('Delete')
-  }
-
+   let asli = m.content.split('discord.gg/')[1]
+   let code = 'y6rWpzCuwH' 
+  if(m.content.includes('discord.gg/'){
+        if(code !== asli){
+            m.delete()   
+        }
+    }
+  
   if(m.content.startsWith(`${prefix}link`)){
     m.reply('https://discord.gg/y6rWpzCuwH')
   }
