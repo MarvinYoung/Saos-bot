@@ -6,9 +6,11 @@ const prefix = process.env.PREFIX
 
 const updatemember = () =>{
     const channelId = '777571163660222484';
+    const channelBot = '777891515271479306';
     const guild = client.guilds.cache.get('724165603740483635');
     const channel = guild.channels.cache.get(channelId);
-    channel.setName(`Members: ${guild.memberCount.toLocaleString()}`)
+    channel.setName(`Members: ${guild.memberCount.toLocaleString()-guild.members.cache.filter(member => member.user.bot).size}`)
+    channelBot.setname(`Bots: ${guild.members.cache.filter(member => member.user.bot).size}`)
   }
 client.on('guildMemberAdd',(member)=>{
     updatemember()
