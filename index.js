@@ -257,4 +257,57 @@ client.on('message',m =>{
   }
 })
 
+client.on('messageReactionAdd',(reaction,user)=>{
+    if(user.bot)return;
+    if(reaction.message.channel.id =='739819187404406826'){
+        if(reaction.message.id =='778947707679146045'){
+            let namaemoji = reaction.emoji.name
+            let rolemeoji =''
+            
+            if(namaemoji =='💻'){
+                rolemeoji = 'web developer'
+            }else if(namaemoji =='📱'){
+                rolemeoji= 'mobile developer'
+            }else if(namaemoji =='🎮'){
+                rolemeoji= 'game developer'
+            }else if(namaemoji =='🎨'){
+                rolemeoji= 'designer'
+            }else if(namaemoji =='🖥️'){
+                rolemeoji= 'data engineer'
+            }
+            let rolerole =reaction.message.guild.roles.cache.find(role => role.name.toLowerCase() == rolemeoji.toLowerCase())
+            let member = reaction.message.guild.members.cache.find(member => member.id === user.id);
+    
+            member.roles.add(rolerole.id);
+        }
+    }
+})
+
+client.on('messageReactionRemove',(reaction,user)=>{
+    if(user.bot)return;
+    if(reaction.message.channel.id =='739819187404406826'){
+        if(reaction.message.id =='778947707679146045'){
+            let namaemoji = reaction.emoji.name
+            let rolemeoji =''
+            
+            if(namaemoji =='💻'){
+                rolemeoji = 'web developer'
+            }else if(namaemoji =='📱'){
+                rolemeoji= 'mobile developer'
+            }else if(namaemoji =='🎮'){
+                rolemeoji= 'game developer'
+            }else if(namaemoji =='🎨'){
+                rolemeoji= 'designer'
+            }else if(namaemoji =='🖥️'){
+                rolemeoji= 'data engineer'
+            }
+
+            let rolerole =reaction.message.guild.roles.cache.find(role => role.name.toLowerCase() == rolemeoji.toLowerCase())
+            let member = reaction.message.guild.members.cache.find(member => member.id === user.id);
+    
+            member.roles.remove(rolerole.id);
+        }
+    }
+})
+
 client.login(process.env.TOKEN);
