@@ -175,7 +175,6 @@ export default y = {
     "kafir":"k*a*i*",
     "kalempong":"k*a*e*p*n*",
     "kamasutra":"k*a*a*u*r*",
-    "kambing":"k*a*b*n*",
     "kampret":"k*a*p*e*",
     "kampungan":"k*a*p*n*a*",
     "kancut":"k*n*u*",
