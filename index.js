@@ -33,25 +33,48 @@ client.on('message', m =>{
     const command = args.shift().toLowerCase();
     const channel = client.channels.cache.get(m.channel.id)
 
-   if(command){
+    if(command){
       if(command == "ceker"){
         if (args[0]){
-          if(channel.guild.roles.cache.find(o => o.name.toLowerCase() == args[0].toLowerCase())){
-            if (args[0].toLowerCase() == channel.guild.roles.cache.find(o => o.name.toLowerCase() == args[0].toLowerCase()).name.toLowerCase()){
-              let d = `List Developer yang memiliki skill ${channel.guild.roles.cache.find(o => o.name.toLowerCase() == args[0].toLowerCase()).name}:\n`
-              let x = 1
-              let f = channel.guild.roles.cache.find(o => o.name.toLowerCase() == args[0].toLowerCase()).members.map(y=> {
-                d += `${x}. ${y.displayName}\n`
-                x += 1
-                return d
-              })
-              m.reply(d)
+            if(args.length == 1){
+                if(channel.guild.roles.cache.find(o => o.name.toLowerCase() == args[0].toLowerCase())){
+                    if (args[0].toLowerCase() == channel.guild.roles.cache.find(o => o.name.toLowerCase() == args[0].toLowerCase()).name.toLowerCase()){
+                    let d = `List Developer yang memiliki skill ${channel.guild.roles.cache.find(o => o.name.toLowerCase() == args[0].toLowerCase()).name}:\n`
+                    let x = 1
+                    let f = channel.guild.roles.cache.find(o => o.name.toLowerCase() == args[0].toLowerCase()).members.map(y=> {
+                        d += `${x}. ${y.displayName}\n`
+                        x += 1
+                        return d
+                    })
+                    m.reply(d)
+                
+                    }
+                }else if(args[0].toLowerCase() === 'ayam' || args[0].toLowerCase() === 'bebek' || args[0].toLowerCase() === 'angsa' || args[0].toLowerCase() === 'kalkun'){
+                    m.reply(`Ma'af, Dev <@${m.author.id}> Kami bukan tempat jualan ${args[0]}`)
+                }else {
+                    m.reply(`Ma'af mungkin boleh lihat role yang ada di <#729575194187923458>`)
+                }
+            }else if(args.length>1){
+            
+                a = args[0] +' ' +args[1]
+            
+                if(channel.guild.roles.cache.find(o => o.name.toLowerCase() == a.toLowerCase())){
+                    let d = `List Developer yang memiliki skill ${channel.guild.roles.cache.find(o => o.name.toLowerCase() == a.toLowerCase())}:\n`
+                    let x = 1
+                    let f = channel.guild.roles.cache.find(o => o.name.toLowerCase() == a.toLowerCase()).members.map(y=> {
+                        d += `${x}. ${y.displayName}\n`
+                        x += 1
+                        return d
+                    })
+                    m.reply(d)
+
+                }else if(args[0].toLowerCase() === 'ayam' || args[0].toLowerCase() === 'bebek' || args[0].toLowerCase() === 'angsa' || args[0].toLowerCase() === 'kalkun'){
+                    m.reply(`Ma'af, Dev <@${m.author.id}> Kami bukan tempat jualan ${args[0]}`)
+                }else {
+                    m.reply(`Ma'af mungkin boleh lihat role yang ada di <#729575194187923458>`)
+                }
             }
-          }else if(args[0].toLowerCase() === 'ayam' || args[0].toLowerCase() === 'bebek' || args[0].toLowerCase() === 'angsa' || args[0].toLowerCase() === 'kalkun'){
-            m.reply(`Ma'af, Dev <@${m.author.id}> Kami bukan tempat jualan ${args[0]}`)
-          }else {
-            m.reply(`Ma'af mungkin boleh lihat role yang ada di <#729575194187923458>`)
-          }
+
         }else {
           m.reply(`Mau Check Role apa Dev <@${m.author.id}>`)
         }    
