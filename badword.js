@@ -1108,7 +1108,6 @@ export default y = {
     "girl on":"g*i*l*o*",
     "girl on top":"g*i*l*o* *o*",
     "girls gone wild":"g*i*l* *o*e*w*ld",
-    "git":"g*t",
     "glans":"g*l*n*",
     "goatcx":"g*a*c*",
     "goatse":"g*a*s*",
